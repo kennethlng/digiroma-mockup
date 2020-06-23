@@ -23,12 +23,12 @@ class ProductPage extends React.Component {
                             </Descriptions>
                         </div>
                     </Col>
-                    <Col span={8}>
+                    <Col span={12}>
                         <div style={gridStyle}>
                             <RadarChart/>
                         </div>
                     </Col>
-                    <Col span={16}>
+                    <Col span={12}>
                         <div style={gridStyle}>
                             <LineChart/>
                         </div>
