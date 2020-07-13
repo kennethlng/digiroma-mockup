@@ -19,6 +19,14 @@ Digiroma is a product web portal I developed at Alibaba for viewing and editing 
 
 ### Live Search
 
-We wanted users to be able to search for products as they type and see results pop up in real-time. I used A timeout was included so that API requests were only sent after the user stopped typing for a brief duration. Otherwise, it resulted in a build-up of requests. For extra measure, axios’ Cancellation feature was used to cancel requests in the event of duplicate requests to the same endpoint.
+We wanted users to be able to search for products as they type and see results pop up in real-time. I used a timeout to make sure API requests were only sent after the user stopped typing for a brief duration, which otherwise would've resulted in a build-up of requests. For extra measure, axios’ Cancellation feature was used to cancel requests in the event of duplicate requests to the same endpoint.
 
 ![live search](https://i.imgur.com/E2o9BIA.gif)
+
+### Role-Based Access Control
+
+Because the product web portal was to be used both internally by our team and externally by our clients, I needed to add restrictions to pages or components on a page. The `Authorization` component checks the component's action (e.g. `read-product-data`) and verifies it against the signed-in user’s permissions. If the user has permission to perform the action based on his or her role, the `Authorization` component renders the `isAuthorized` prop. Otherwise, the `isNotAuthorized` prop is rendered.
+
+<script src="https://gist.github.com/kennethlng/8f72b88bd8744b9fd5af616eed240922.js"></script>
+
+I also added the `ProtectedRoute` from [ReactTraining](https://reacttraining.com/react-router/web/example/auth-workflow) to redirect users to the login page if they weren’t signed in or didn’t have the proper access.
