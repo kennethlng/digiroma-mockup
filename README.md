@@ -23,32 +23,6 @@ We wanted users to be able to search for products as they type and see results p
 
 ![live search](https://i.imgur.com/E2o9BIA.gif)
 
-```javascript
-//  Search.js
-
-state = {
-    timeout: 0,
-    options: []
-}
-
-handleSearch = (value) => {
-    const { timeout } = this.state; 
-
-    if (timeout) {
-        clearTimeout(timeout); 
-    }
-
-    this.setState({
-        timeout: setTimeout(() => {
-            console.log("API call"); 
-            this.setState({
-                options: value ? searchResult(value) : [],
-            })
-        }, 500)
-    })
-}
-```
-
 ### Role-Based Access Control
 
 Because the product web portal was to be used both internally by our team and externally by our clients, I needed to add restrictions to pages or components on a page. The `Authorization` component checks the component's action (e.g. `read-product-data`) and verifies it against the signed-in user’s permissions. If the user has permission to perform the action based on his or her role, the `Authorization` component renders the `isAuthorized` prop. Otherwise, the `isNotAuthorized` prop is rendered.
