@@ -27,6 +27,33 @@ We wanted users to be able to search for products as they type and see results p
 
 Because the product web portal was to be used both internally by our team and externally by our clients, I needed to add restrictions to pages or components on a page. The `Authorization` component checks the component's action (e.g. `read-product-data`) and verifies it against the signed-in user’s permissions. If the user has permission to perform the action based on his or her role, the `Authorization` component renders the `isAuthorized` prop. Otherwise, the `isNotAuthorized` prop is rendered.
 
-<script src="https://gist.github.com/kennethlng/8f72b88bd8744b9fd5af616eed240922.js"></script>
+```javascript
+import React from 'react'; 
+
+const check = (action, permission) => {
+    if (action === permission) return true; 
+
+    return false; 
+}
+
+const Authorization = props => {
+    const { action, permission } = this.props; 
+
+    return check(action, permission) ? props.isAuthorized() : props.isNotAuthorized(); 
+}
+
+Authorization.defaultProps = {
+    isAuthorized: () => null,
+    isNotAuthorized: () => null
+}
+
+export default Authorization; 
+```
 
 I also added the `ProtectedRoute` from [ReactTraining](https://reacttraining.com/react-router/web/example/auth-workflow) to redirect users to the login page if they weren’t signed in or didn’t have the proper access.
+
+### Data Visualization
+
+[Viser.js]() was used for data visualization. They have a huge library of ready-to-use components for React. It was just a matter of properly mapping over the data.
+
+![data visualization](https://i.imgur.com/s7ypvAs.gif)
