@@ -57,3 +57,7 @@ I also added the `ProtectedRoute` from [ReactTraining](https://reacttraining.com
 [Viser.js]() was used for data visualization. They have a huge library of ready-to-use components for React. It was just a matter of properly mapping over the data.
 
 ![data visualization](https://i.imgur.com/s7ypvAs.gif)
+
+## Contact
+
+If you have any issues or questions, message me on [Twitter](https://twitter.com/kennethlng) or email me hello@kennethlng.com.
