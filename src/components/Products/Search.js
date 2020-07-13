@@ -36,30 +36,76 @@ const searchResult = query =>
             };
         });
 
-const Search = () => {
-    const [options, setOptions] = useState([]);
+// const Search = () => {
+//     const [options, setOptions] = useState([]);
 
-    const handleSearch = value => {
-        setOptions(value ? searchResult(value) : []);
-    };
+//     const handleSearch = value => {
+//         setOptions(value ? searchResult(value) : []);
+//     };
 
-    const onSelect = value => {
+//     const onSelect = value => {
+//         console.log('onSelect', value);
+//     };
+
+//     return (
+//         <AutoComplete
+//             dropdownMatchSelectWidth={252}
+//             style={{
+//                 width: '100%',
+//             }}
+//             options={options}
+//             onSelect={onSelect}
+//             onSearch={handleSearch}
+//         >
+//             <Input.Search size="large" placeholder="input here" enterButton />
+//         </AutoComplete>
+//     );
+// };
+
+class Search extends React.Component { 
+    state = {
+        timeout: 0,
+        options: []
+    }
+
+    handleSearch = (value) => {
+        const { timeout } = this.state; 
+
+        if (timeout) {
+            clearTimeout(timeout); 
+        }
+
+        this.setState({
+            timeout: setTimeout(() => {
+                console.log("API call"); 
+                this.setState({
+                    options: value ? searchResult(value) : [],
+                })
+            }, 500)
+        })
+    }
+
+    onSelect = value => {
         console.log('onSelect', value);
     };
 
-    return (
-        <AutoComplete
-            dropdownMatchSelectWidth={252}
-            style={{
-                width: '100%',
-            }}
-            options={options}
-            onSelect={onSelect}
-            onSearch={handleSearch}
-        >
-            <Input.Search size="large" placeholder="input here" enterButton />
-        </AutoComplete>
-    );
-};
+    render() {
+        const { options } = this.state; 
+
+        return (
+            <AutoComplete
+                dropdownMatchSelectWidth={252}
+                style={{
+                    width: '100%',
+                }}
+                options={options}
+                onSelect={this.onSelect}
+                onSearch={this.handleSearch}
+            >
+                <Input.Search size="large" placeholder="input here" enterButton />
+            </AutoComplete>
+        )
+    }
+}
 
 export default Search; 
