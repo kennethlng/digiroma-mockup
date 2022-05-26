@@ -1,6 +1,6 @@
 ![cover](https://kennethlng.com/images/projects/digiroma/Digiroma%20mock-up%20orange%20bg.png)
 
-Digiroma is a product web portal I developed at Alibaba for viewing and editing product details and visualizing data in interactive charts.
+Digiroma is a product analytics web portal I developed at Alibaba for viewing and editing product details and visualizing data in interactive charts. The app is used internally, so this is just a mockup of what I worked on as I'm not able to share much about its use case. 
 
 ## Installation
 
@@ -10,10 +10,14 @@ Digiroma is a product web portal I developed at Alibaba for viewing and editing 
 
 ## Stack 
 
-* React
-* [Ant Design](https://ant.design)
-* [axios](https://github.com/axios/axios)
-* [viser.js](https://viserjs.github.io)
+<p>
+    <img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> 
+    <img alt="Javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />
+    <img alt="Nodejs" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
+    <img alt="MySQL" src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" />
+    <img alt="Viserjs" />
+    <img alt="Ant Design" />
+</p>
 
 ## Features
 
